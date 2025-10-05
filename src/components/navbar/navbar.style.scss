@@ -57,3 +57,38 @@
     }
   }
 }
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 20px 8%;
+
+    .nav-right {
+      button {
+        gap: 8px;
+        padding: 8px 18px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px 8%;
+
+    .nav-right {
+      button {
+        gap: 8px;
+        padding: 8px 18px;
+        font-size: 14px;
+
+        img {
+          width: 12px;
+        }
+      }
+    }
+    ul {
+      display: none;
+    }
+  }
+}

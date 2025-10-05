@@ -100,3 +100,40 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .home {
+    .crypto-table {
+      .crypto-layout {
+        grid-template-columns: 0.5fr 3fr 1fr 1fr;
+
+        .market-cap {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .home {
+    .hero {
+      form {
+        input {
+          width: 100px;
+        }
+      }
+    }
+    .crypto-table {
+      .crypto-layout {
+        font-size: 13px;
+
+        div {
+          img {
+            width: 25px;
+          }
+        }
+      }
+    }
+  }
+}
