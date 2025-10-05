@@ -48,8 +48,9 @@ const Home = () => {
               </div>
               <p>
                 {currency.symbol} {coin.current_price.toLocaleString()}
-              </p>
-              <p>{Math.floor(coin.price_change_percentage_24h * 100) / 100}</p>
+              </p >
+              <p className={coin.price_change_percentage_24h > 0 ? 'green' : 'red' }>
+                {Math.floor(coin.price_change_percentage_24h * 100) / 100}</p>
               <p className="market-cap">
                 {currency.symbol}
                 {coin.market_cap.toLocaleString()}
