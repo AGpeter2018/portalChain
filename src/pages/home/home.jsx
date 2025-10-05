@@ -8,6 +8,22 @@ import { coinContext } from "../../context/Coincontext";
 const Home = () => {
   const { allCoin, currency } = useContext(coinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
+  const [input, setInput] = useState("");
+
+  const inputHandler = (e) => {
+    setInput(e.target.value);
+    if (e.target.value === "") {
+      setDisplayCoin(allCoin);
+    }
+  };
+
+  const searchHandler = async (e) => {
+    e.preventDefault();
+    const coins = await allCoin.filter((coin) => {
+      return coin.name.toLowerCase().includes(input.toLowerCase());
+    });
+    setDisplayCoin(coins);
+  };
 
   useEffect(() => {
     setDisplayCoin(allCoin);
@@ -23,8 +39,14 @@ const Home = () => {
           Explore the DeFi Market, where innovation meets opportunity. Buy,
           trade, and stake digital assets with full control and zero middlemen.
         </p>
-        <form action="">
-          <input type="text" placeholder="search crypto.." />
+        <form onSubmit={searchHandler}>
+          <input
+            type="text"
+            value={input}
+            onChange={inputHandler}
+            placeholder="search crypto.."
+            required
+          />
           <button type="submit">
             <img src={SearchIcon} alt="" />
           </button>
@@ -48,9 +70,14 @@ const Home = () => {
               </div>
               <p>
                 {currency.symbol} {coin.current_price.toLocaleString()}
-              </p >
-              <p className={coin.price_change_percentage_24h > 0 ? 'green' : 'red' }>
-                {Math.floor(coin.price_change_percentage_24h * 100) / 100}</p>
+              </p>
+              <p
+                className={
+                  coin.price_change_percentage_24h > 0 ? "green" : "red"
+                }
+              >
+                {Math.floor(coin.price_change_percentage_24h * 100) / 100}
+              </p>
               <p className="market-cap">
                 {currency.symbol}
                 {coin.market_cap.toLocaleString()}
