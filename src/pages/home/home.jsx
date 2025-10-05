@@ -44,9 +44,17 @@ const Home = () => {
             type="text"
             value={input}
             onChange={inputHandler}
+            list="coinlist"
             placeholder="search crypto.."
             required
           />
+
+          <datalist id="coinlist">
+            {allCoin.map((coin, index) => {
+              return <option key={index} value={coin.name} />;
+            })}
+          </datalist>
+
           <button type="submit">
             <img src={SearchIcon} alt="" />
           </button>
