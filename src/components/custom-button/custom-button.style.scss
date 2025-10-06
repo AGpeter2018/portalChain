@@ -1,11 +1,12 @@
 .custom-btn {
-  padding: 5px 10px;
-  margin: 0 15px;
-  display: inline-block;
-  margin-top: -25px;
+  display: flex;
+  justify-content: center; /* centers button horizontally */
+  align-items: center; /* optional, for vertical alignment */
+  margin-top: 20px; /* space above button */
+  width: 100%;
+  //   padding-left: 8px;
   .btn {
     padding: 10px;
-    width: 100px;
     border-radius: 10px;
     border: none;
     outline: none;
@@ -19,5 +20,16 @@
     &:hover {
       background: #0a1e36;
     }
+  }
+
+  .signWithGoogle {
+    width: 380px;
+  }
+  .signIn {
+    width: 380px;
+  }
+  .signUp {
+    padding: 10px;
+    width: 380px;
   }
 }
