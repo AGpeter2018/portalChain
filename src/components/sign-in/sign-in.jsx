@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
+import { signInWithGoogle } from "../../firebase-utils";
+
 import CustomInput from "../custom-input/custom-input";
 import CustomButton from "../custom-button/custom-button";
 
 import "./sign-in.style.scss";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [signInData, setSignInData] = useState({
@@ -51,10 +54,13 @@ const SignIn = () => {
           </div>
 
           <CustomButton type="submit">Sign In</CustomButton>
-          <CustomButton type="submit" signWithGoogle>
+          <CustomButton type="submit" signWithGoogle onClick={signInWithGoogle}>
             Google
           </CustomButton>
         </form>
+      </div>
+      <div className="go-signUp">
+        Not having account ? <Link to="/signUp">sign up</Link>
       </div>
     </div>
   );
