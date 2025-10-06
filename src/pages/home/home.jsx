@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import SearchIcon from "../../assets/search-icon.svg";
 
@@ -70,7 +71,7 @@ const Home = () => {
         </div>
         {displayCoin.slice(0, 10).map((coin, index) => {
           return (
-            <div className="crypto-layout" key={index}>
+            <Link to={`/coin/${coin.id}`} className="crypto-layout" key={index}>
               <p>{coin.market_cap_rank}</p>
               <div>
                 <img src={coin.image} alt="" />
@@ -90,7 +91,7 @@ const Home = () => {
                 {currency.symbol}
                 {coin.market_cap.toLocaleString()}
               </p>
-            </div>
+            </Link>
           );
         })}
       </div>

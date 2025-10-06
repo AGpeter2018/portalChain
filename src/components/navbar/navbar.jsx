@@ -4,6 +4,7 @@ import arrow_icon from "../../assets/arrow_icon.png";
 
 import "./navbar.style.scss";
 import { coinContext } from "../../context/Coincontext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { currency, setCurrency } = useContext(coinContext);
@@ -30,7 +31,9 @@ const Navbar = () => {
   };
   return (
     <div className="navbar">
-      <h1 className="Logo">PortalChain</h1>
+      <Link to="/">
+        <h1 className="Logo">PortalChain</h1>
+      </Link>
       <ul>
         <li>Home</li>
         <li>Features</li>
