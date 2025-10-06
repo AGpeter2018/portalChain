@@ -39,11 +39,11 @@ app.get("/api/coins", async (req, res) => {
       // Common temporary network issue
       if (error.name === "AbortError") {
         console.error(
-          `⏰ Timeout: CoinGecko took too long. Retries left: ${retries}`
+          ` Timeout: CoinGecko took too long. Retries left: ${retries}`
         );
       } else {
         console.error(
-          `❌ Fetch failed: ${error.message}. Retries left: ${retries}`
+          ` Fetch failed: ${error.message}. Retries left: ${retries}`
         );
       }
 
@@ -58,6 +58,27 @@ app.get("/api/coins", async (req, res) => {
       // wait 1 second before retrying
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
+  }
+});
+
+app.get("/api/coin/:id", async (req, res) => {
+  const { id } = req.params;
+  const currency = req.query.currency || "usd";
+
+  const url = `https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=true&community_data=true&developer_data=true&sparkline=false`;
+
+  try {
+    const response = await fetch(url, {
+      headers: { "x-cg-api-key": "CG-PiqcP3PrrVXeWdGcEnud4UBs" },
+    });
+
+    if (!response.ok) throw new Error(`API error: ${response.statusText}`);
+
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    console.error("Error fetching specific coin:", error.message);
+    res.status(500).json({ error: error.message });
   }
 });
 
