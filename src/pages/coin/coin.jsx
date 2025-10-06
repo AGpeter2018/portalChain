@@ -7,6 +7,7 @@ import "./coin.style.scss";
 const Coin = () => {
   const { coinId } = useParams();
   const [coinData, setCoinData] = useState(null);
+  const [historicalData, setHistoricalCoinData] = useState(null);
   const { currency } = useContext(coinContext);
 
   const FetchCoinData = async () => {
