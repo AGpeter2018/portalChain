@@ -1,0 +1,26 @@
+.custom-btn {
+  padding: 5px 10px;
+  margin: 0 15px;
+  display: inline-block;
+  .btn {
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background-color: #183355;
+    color: white;
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+
+    &:hover {
+      background: #0a1e36;
+    }
+  }
+
+  //   .signWithGoogle {
+  //     width: 10px;
+  //   }
+}
