@@ -124,7 +124,7 @@ const SignUp = () => {
       {loading && (
         <div className="spinner">
           <div className="spin"></div>
-          <div className="text-spin">PortalChain</div>
+          <div className="text-spin">PortalChain...</div>
         </div>
       )}
       <div className="goTo-signIn">
