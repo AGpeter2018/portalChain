@@ -8,7 +8,7 @@ import CustomInput from "../custom-input/custom-input";
 import "./sign-up.style.scss";
 
 const SignUp = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [userData, setUserData] = useState({
     displayName: "",
     email: "",
@@ -79,7 +79,7 @@ const SignUp = () => {
           />
           <CustomInput
             type="password"
-            name="confirmPasword"
+            name="confirmPassword"
             value={confirmPassword}
             label="Confirm Password"
             onChange={handleChange}

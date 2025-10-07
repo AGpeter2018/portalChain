@@ -5,8 +5,9 @@ import arrow_icon from "../../assets/arrow_icon.png";
 import "./navbar.style.scss";
 import { coinContext } from "../../context/Coincontext";
 import { Link } from "react-router-dom";
+import { auth } from "../../firebase-utils";
 
-const Navbar = () => {
+const Navbar = ({ currentUser }) => {
   const { currency, setCurrency } = useContext(coinContext);
 
   const currencyHandler = (e) => {
@@ -46,9 +47,15 @@ const Navbar = () => {
           <option value="eur">EUR</option>
           <option value="inr">INR</option>
         </select>
-        <button>
-          Sign Up <img src={arrow_icon} alt="" />
-        </button>
+        {currentUser ? (
+          <p style={{ cursor: "pointer" }} onClick={() => auth.signOut()}>
+            Sign Out
+          </p>
+        ) : (
+          <Link to="/signIn">
+            Sign In <img src={arrow_icon} alt="" />
+          </Link>
+        )}
       </div>
     </div>
   );

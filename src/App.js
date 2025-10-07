@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { auth, createUserProfile } from "./firebase-utils";
 
@@ -11,33 +11,42 @@ import SignUp from "./components/sign-up-/sign-up";
 import SignIn from "./components/sign-in/sign-in";
 
 function App() {
-  const [currentUser, setCurrentUser] = useState("");
-  const onSubscription = auth.onAuthStateChanged(async (user) => {
-    if (user) {
-      const userRef = await createUserProfile(user);
-      userRef.onSnapshot((snapshot) => {
-        setCurrentUser({
-          id: snapshot.id,
-          ...snapshot.data(),
-        });
-      });
-    }
-  });
+  const [currentUser, setCurrentUser] = useState(null);
   useEffect(() => {
-    onSubscription();
-    if (onSubscription) {
-      return onSubscription();
-    }
+    const onSubscription = auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        const userRef = await createUserProfile(user);
+        userRef.onSnapshot((snapshot) => {
+          setCurrentUser({
+            id: snapshot.id,
+            ...snapshot.data(),
+          });
+        });
+      } else {
+        setCurrentUser(null);
+      }
+    });
+
+    return () => onSubscription();
   }, []);
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar currentUser={currentUser} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={currentUser ? <Home /> : <Navigate to="/signIn" replace />}
+        />
         <Route path="/coin/:coinId/" element={<Coin />} />
-        <Route path="/signUp" element={<SignUp />} />
-        <Route path="/signIn" element={<SignIn />} />
+        <Route
+          path="/signIn"
+          element={currentUser ? <Navigate to="/" replace /> : <SignIn />}
+        />
+        <Route
+          path="/signUp"
+          element={currentUser ? <Navigate to="/" replace /> : <SignUp />}
+        />
       </Routes>
       <Footer />
     </div>

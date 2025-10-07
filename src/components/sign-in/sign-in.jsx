@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { signInWithGoogle } from "../../firebase-utils";
+import { auth, signInWithGoogle } from "../../firebase-utils";
 
 import CustomInput from "../custom-input/custom-input";
 import CustomButton from "../custom-button/custom-button";
@@ -14,13 +14,18 @@ const SignIn = () => {
     password: "",
   });
   const { email, password } = signInData;
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setSignInData({ email: "", password: "" });
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setSignInData({ email: "", password: "" });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   const handleChange = (event) => {
     const { value, name } = event.target;
-    setSignInData({ [name]: value });
+    setSignInData((prev) => ({ ...prev, [name]: value }));
   };
   return (
     <div className="sign-in">
