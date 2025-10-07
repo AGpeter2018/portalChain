@@ -34,6 +34,7 @@ const SignUp = () => {
         email,
         password
       );
+      setLoading(false)
 
       await createUserProfile(user, { displayName });
       setMessage({ type: "success", text: "Account created successfully" });
@@ -118,6 +119,12 @@ const SignUp = () => {
       </div>
       {message.text && (
         <div className={`alert ${message.type}`}>{message.text}</div>
+      )}
+
+      {loading && (
+        <div className="spinner">
+          <div className="spin"></div>
+        </div>
       )}
       <div className="goTo-signIn">
         Already have an account ? <Link to="/signIn">sign In</Link>
