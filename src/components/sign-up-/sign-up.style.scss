@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 8rem auto;
+  margin: 5rem auto;
   max-width: 400px;
   padding: 5px 0;
   background: #4c5157;
@@ -24,6 +24,15 @@
     }
   }
 
+  .sign-in-title {
+    padding: 5px 0;
+    line-height: 1.5;
+
+    h2 {
+      font-size: 30px;
+    }
+  }
+
   .form-body {
     .signUp-block {
       input {
@@ -35,5 +44,43 @@
 
   .goTo-signIn {
     margin: 5px auto;
+  }
+
+  .alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    z-index: 1000;
+    animation: fadeInOut 3s ease-in-out;
+  }
+
+  .alert.success {
+    background-color: #4caf50; // green
+  }
+
+  .alert.error {
+    background-color: #f44336; // red
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    15% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    85% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
   }
 }
