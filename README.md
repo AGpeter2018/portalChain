@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# PortalChain
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PortalChain is a modern React-based web application featuring secure user authentication powered by Firebase.
+It provides a sleek, responsive sign-in and sign-up flow with animated loaders, real-time validation, and Google authentication support.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+### Firebase Authentication
 
-### `npm start`
+Email and password sign-in
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Google sign-in
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+User account creation and storage
 
-### `npm test`
+### Custom UI Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Reusable input and button components
 
-### `npm run build`
+Dynamic success/error alert messages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Animated loading spinner
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Routing & Navigation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+React Router integration
 
-### `npm run eject`
+Redirects after successful sign-in and sign-up
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Modern Styling
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+SCSS-based design
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Responsive layout
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Smooth animations and transitions
 
-## Learn More
+## Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+React.js – Component-based UI library
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Firebase – Authentication & Firestore database
 
-### Code Splitting
+React Router – Navigation between pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+SCSS – Styling and animations
 
-### Analyzing the Bundle Size
+JavaScript (ES6+) – Application logic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Clone the repository
 
-### Making a Progressive Web App
+git clone https://github.com/<your-username>/PortalChain.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# Move into the project folder
 
-### Advanced Configuration
+cd PortalChain
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Install dependencies
 
-### Deployment
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# or
 
-### `npm run build` fails to minify
+yarn install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+npm start
+
+Visit http://localhost:3000
+
+Sign up or sign in with your credentials or Google account
+
+View success/error messages and automatic redirection
