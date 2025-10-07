@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
 import arrow_icon from "../../assets/arrow_icon.png";
+import { FaRegUserCircle } from "react-icons/fa";
 
 import "./navbar.style.scss";
 import { coinContext } from "../../context/Coincontext";
@@ -55,6 +56,15 @@ const Navbar = ({ currentUser }) => {
           <Link to="/signIn">
             Sign In <img src={arrow_icon} alt="" />
           </Link>
+        )}
+        {currentUser && currentUser.photoURL ? (
+          <img
+            src={currentUser.photoURL}
+            alt="profile image"
+            style={{ width: "25px", height: "25px", borderRadius: "15px" }}
+          />
+        ) : (
+          <FaRegUserCircle style={{ width: "20px", height: "25px" }} />
         )}
       </div>
     </div>
