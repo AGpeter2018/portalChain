@@ -25,6 +25,7 @@ const SignIn = () => {
     try {
       setLoading(true);
       await auth.signInWithEmailAndPassword(email, password);
+      setLoading(false);
       setSignInData({ email: "", password: "" });
       setMessage({ type: "success", text: "Signed in successfully!" });
 
@@ -76,7 +77,7 @@ const SignIn = () => {
           </div>
 
           <CustomButton type="submit" signIn disabled={loading}>
-            {loading ? "Signing In" : "Sign In"}
+            {loading ? "Signing In..." : "Sign In"}
           </CustomButton>
           <CustomButton
             type="submit"
@@ -90,6 +91,11 @@ const SignIn = () => {
       </div>
       {message.text && (
         <div className={`alert ${message.type}`}>{message.text}</div>
+      )}
+      {loading && (
+        <div className="spinner">
+          <div className="spin"></div>
+        </div>
       )}
       <div className="go-signUp">
         Not having an account ? <Link to="/signUp">sign up</Link>
