@@ -34,7 +34,7 @@ const SignUp = () => {
         email,
         password
       );
-      setLoading(false)
+      setLoading(false);
 
       await createUserProfile(user, { displayName });
       setMessage({ type: "success", text: "Account created successfully" });
@@ -124,6 +124,7 @@ const SignUp = () => {
       {loading && (
         <div className="spinner">
           <div className="spin"></div>
+          <div className="text-spin">PortalChain</div>
         </div>
       )}
       <div className="goTo-signIn">
