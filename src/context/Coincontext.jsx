@@ -15,7 +15,7 @@ const CoinContextProvider = (props) => {
     try {
       // 👇 Call your local backend instead of CoinGecko directly
       const response = await fetch(
-        `http://localhost:5000/api/coins?currency=${currency.name}`
+        `https://portalchain.onrender.com/api/coins?currency=${currency.name}`
       );
 
       if (!response.ok) {
