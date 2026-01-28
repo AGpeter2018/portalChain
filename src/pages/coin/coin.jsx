@@ -14,7 +14,7 @@ const Coin = () => {
   const FetchCoinData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/coin/${coinId}?currency=${currency.name}`
+        `https://portalchain.onrender.com/api/coin/${coinId}?currency=${currency.name}`
       );
       if (!response.ok) throw new Error("Failed to fetch coin data");
       const data = await response.json();
@@ -25,7 +25,7 @@ const Coin = () => {
   };
 
   const FetchHistoryData = async () => {
-    const url = `http://localhost:5000/api/coin/${coinId}/history?currency=${currency.name}&days=10&interval=daily`;
+    const url = `https://portalchain.onrender.com/api/coin/${coinId}/history?currency=${currency.name}&days=10&interval=daily`;
 
     try {
       const response = await fetch(url);

@@ -35,7 +35,7 @@ const SignIn = () => {
       }, 4000);
     } catch (error) {
       console.log(error.message);
-      setMessage({ type: "serror", text: error.message });
+      setMessage({ type: "error", text: error.message });
       setTimeout(() => setMessage({ type: "", text: "" }), 2500);
     } finally {
       setLoading(false);
