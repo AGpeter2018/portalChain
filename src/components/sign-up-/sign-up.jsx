@@ -43,9 +43,9 @@ const SignUp = () => {
         console.log("in already");
         navigate("/signIn");
       }, 2500);
-      navigate("/signIn", {
-        state: { message: "Account created successfully" },
-      });
+      // navigate("/signIn", {
+      //   state: { message: "Account created successfully" },
+      // });
       setTimeout(() => {
         setMessage({ type: "", text: "" });
       }, 2500);
